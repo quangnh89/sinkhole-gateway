@@ -190,9 +190,9 @@ class SyslogdProtocol(LineReceiver):
             # parse syslog to get connection information
             src_addr_v4 = re.search("SRC=[0-9]{1,3}\.[[0-9]{1,3}\.[[0-9]{1,3}\.[[0-9]{1,3}",
                                     line, re.M | re.I).group()[4:]
-            sport = re.search("SPT=[0-9]{1,3}", line, re.M | re.I).group()[4:]
+            sport = re.search("SPT=[0-9]{1,5}", line, re.M | re.I).group()[4:]
             sport = int(sport, 10)
-            dport = re.search("DPT=[0-9]{1,3}", line, re.M | re.I).group()[4:]
+            dport = re.search("DPT=[0-9]{1,5}", line, re.M | re.I).group()[4:]
             dport = int(dport, 10)
             proto = re.search("PROTO=[A-Z]+\s", line, re.M | re.I).group().strip().split('=')[1]
             proto = proto_dict[proto]
