@@ -4,12 +4,12 @@ Trong khi phân tích mã độc (malware), người phân tích luôn gặp m�
 
 ## Cài đặt môi trường phân tích
 Tôi dùng VMware để xây dựng hệ thống phân tích của mình. VirtualBox và các loại máy ảo khác có lẽ cùng dùng được. Cần tối thiểu hai máy tính, một máy windows và một máy linux. Hai máy này kết nối được với nhau.
-Tôi tạo thêm một card mạng ảo để 2 máy có thể giao tiếp với nhau qua một mạng ảo:
+Tôi tạo thêm một card mạng ảo để 2 máy có thể giao tiếp với nhau qua một mạng ảo:<br />
 ![Network adapter](screenshots/adapter_config.PNG "edit network adapter")
-
+<br />
 ![Network adapter](screenshots/config_ip.PNG "edit network adapter")
 
-Tôi thêm card mạng ảo đó vào cả hai máy.
+Tôi thêm card mạng ảo đó vào cả hai máy.<br />
 ![Network adapter](screenshots/net_adapter.PNG "Network adapter")
 
 ## Cài đặt gateway
@@ -77,21 +77,21 @@ service rsyslog restart
 **Lưu ý:** Vì cổng 53 là một "privileged" port, có nghĩa là bạn cần chạy server với quyền root thì mới có thể lắng nghe ở cổng 53. Nếu không muốn dùng quyền root, bạn nên để cổng DNS là một cổng khác và dùng iptables để chuyển hướng kết nối.
 
 ## Kết quả
-Tôi tiến hành cấu hình địa chỉ IP trên máy windows như sau:
+Tôi tiến hành cấu hình địa chỉ IP trên máy windows như sau:<br />
 ![Client Address](screenshots/client_ip.PNG "Client IP Address")
 
-Và tôi dùng một công cụ đơn giản để gửi một request tới địa chỉ **google.com:80**. Có thể dùng nc nhưng tôi lại thích màu mè.
+Và tôi dùng một công cụ đơn giản để gửi một request tới địa chỉ **google.com:80**. Có thể dùng nc nhưng tôi lại thích màu mè.<br />
 ![Client](screenshots/client.PNG "Client")
 
 Sau đó, kiểm tra trong cơ sở dữ liệu:
 
-Bạn có thể thấy chúng ta nhận được lệnh truy vấn dns để phân giải tên miền **google.com**
+Bạn có thể thấy chúng ta nhận được lệnh truy vấn dns để phân giải tên miền **google.com**<br />
 ![DNS Log](screenshots/dns_log.PNG "DNS log")
 
-Sau đó là một kết nối được mở tới server giả của tôi:
+Sau đó là một kết nối được mở tới server giả của tôi:<br />
 ![Connection log](screenshots/connection_log.PNG "Connection log")
 
-Cuối cùng là nội dung mà client đã gửi đi **Hello, World!**:
+Cuối cùng là nội dung mà client đã gửi đi **Hello, World!**:<br />
 ![Sink hole data](screenshots/sinkhole_data.PNG "Sink hole data")
 
 ## Kết luận

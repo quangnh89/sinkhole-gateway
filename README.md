@@ -4,12 +4,12 @@ Sometimes, you want to know what malicious software (malware) has sent to intern
 
 ## Setup environment
 I use VMware to setup virtual machine. VirtualBox and the other kinds of virtual machine are good choices, but I have not tested with them. At least, we need 02 machines: a Microsoft Windows machine and a Linux machine. Both machine can connect to each other.
-I add a new private network for these machines:
+I add a new private network for these machines:<br />
 ![Network adapter](screenshots/adapter_config.PNG "edit network adapter")
-
+<br />
 ![Network adapter](screenshots/config_ip.PNG "edit network adapter")
 
-Finally, I configure network adapters on both machines.
+Finally, I configure network adapters on both machines.<br />
 ![Network adapter](screenshots/net_adapter.PNG "Network adapter")
 
 
@@ -77,21 +77,21 @@ service rsyslog restart
 **Note:** because 53 is a "privileged" port, you should run server as root to bind. Or, you may edit DNS port number to another one and use iptables to redirect traffic.
 
 ## Result
-I configure client IP address as:
+I configure client IP address as:<br />
 ![Client Address](screenshots/client_ip.PNG "Client IP Address")
 
-I use a simple GUI network tool to create a connection to **google.com:80**
+I use a simple GUI network tool to create a connection to **google.com:80**<br />
 ![Client](screenshots/client.PNG "Client")
 
 And then, I query database for result:
 
-You can see, client queries DNS server for domain **google.com**
+You can see, client queries DNS server for domain **google.com**<br />
 ![DNS Log](screenshots/dns_log.PNG "DNS log")
 
-After that, client creates a TCP connection to my **fake** server:
+After that, client creates a TCP connection to my **fake** server: <br />
 ![Connection log](screenshots/connection_log.PNG "Connection log")
 
-Finally, client sends **Hello, World!**:
+Finally, client sends **Hello, World!**:<br />
 ![Sink hole data](screenshots/sinkhole_data.PNG "Sink hole data")
 
 ## Conclusions
