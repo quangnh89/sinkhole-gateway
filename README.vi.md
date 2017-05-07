@@ -1,6 +1,6 @@
 # Cài đặt internet gateway để giám sát các hành vi của mã độc
 ## TL;DR
-Trong khi phân tích mã độc (malware), người phân tích luôn gặp một số tình huống khó chịu như: mã độc cần có kết nối tới server điều khiển, hoặc mã độc sẽ kiểm tra kết nối tới một số server trước khi thực hiện hành vi độc hại. Việc kiểm tra những đoạn mã liên quan tới kết nối và giao tiếp với server thật sự rất khó khăn. Do đó, tôi nghĩ tới một phướng pháp có thể giám sát và kiểm tra tất cả các dữ liệu được gửi tới server và đưa chúng vào database. Bằng phương pháp này, chúng ta có thể biết được chính xác thứ malware gửi ra ngoài nhưng không cần thiết phải dịch ngược (reverse engineering) quá nhiều.
+Trong khi phân tích mã độc (malware), người phân tích luôn gặp một số tình huống khó chịu như: mã độc cần có kết nối tới server điều khiển, hoặc mã độc sẽ kiểm tra kết nối tới một số server trước khi thực hiện hành vi độc hại. Việc kiểm tra những đoạn mã liên quan tới kết nối và giao tiếp với server thật sự rất khó khăn. Do đó, tôi nghĩ tới một phương pháp có thể giám sát và kiểm tra tất cả các dữ liệu được gửi tới server và đưa chúng vào database. Bằng phương pháp này, chúng ta có thể biết được chính xác thứ malware gửi ra ngoài nhưng không cần thiết phải dịch ngược (reverse engineering) quá nhiều.
 
 ## Cài đặt môi trường phân tích
 Tôi dùng VMware để xây dựng hệ thống phân tích của mình. VirtualBox và các loại máy ảo khác có lẽ cùng dùng được. Cần tối thiểu hai máy tính, một máy windows và một máy linux. Hai máy này kết nối được với nhau.
@@ -59,7 +59,7 @@ Trong server này, tôi tích hợp 3 module khác nhau, được xây dựng d�
  - SinkholeServer: một server có nhiệm vụ nhận tất cả dữ liệu mà malware gửi tới và ghi vào database.
  - DatabaseConnector: nhằm giao tiếp với cơ sở dữ liệu mysql.
 
-Tôi cài dặt thêm một số gói cần thiết trước khi chạy server:
+Tôi cài đặt thêm một số gói cần thiết trước khi chạy server:
 ``` bash
 apt-get install python python-dev python-pip libmysqlclient-dev mysql-client
 pip install twisted MySQL-python
